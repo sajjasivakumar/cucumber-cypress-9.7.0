@@ -1,0 +1,41 @@
+{
+  "name": "cypress-cucumber",
+  "version": "1.0.0",
+  "description": "UI Automation using cypress and cucumber",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run --headed --browser chrome",
+    "test-search-feature": "cypress run --headed --browser chrome --spec 'cypress/integration/**/google.feature'",
+    "test-actions-feature": "cypress run --headed --browser chrome --spec 'cypress/integration/**/actions.feature'",
+    "test-tag-google": "./node_modules/.bin/cypress-tags run -e TAGS='not @actions and @google'",
+    "test-tag-actions": "./node_modules/.bin/cypress-tags run -e TAGS='not @google and @actions'",
+    "reports": "node cucumber-html-report.js"
+  },
+  "author": "siva.sajja",
+  "license": "ISC",
+  "devDependencies": {
+    "cucumber-html-reporter": "^5.5.0",
+    "cypress": "^9.7.0",
+    "cypress-cucumber-attach-screenshots-to-failed-steps": "^1.0.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-xpath": "^2.0.1",
+    "mocha": "^10.2.0",
+    "multiple-cucumber-html-reporter": "^3.1.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  },
+  "dependencies": {
+    "cucumber": "^6.0.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sajjasivakumar/cucumber-cypress-9.7.0.git"
+  }
+}
